@@ -38,7 +38,7 @@ const generateImage = async (req, res) => {
 const exploreImages = async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 1;
-        const limit = parseInt(req.query.page - limit) || 10;
+        const limit = parseInt(req.query.limit) || 10;
 
         const totalImages = await ImageModel.countDocuments();
         const images = await ImageModel.find().skip((page - 1) * limit).limit(limit).sort({ createsAt: -1 });
