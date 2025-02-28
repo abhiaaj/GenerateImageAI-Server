@@ -29,7 +29,7 @@ const generateImage = async (req, res) => {
         //await newImage.save();
         await ImageModel.create({ prompt, imageUrl });
 
-        return res.status(200).json({ message: "image generated successfully." });
+        return res.status(200).json({ imageUrl: imageUrl });
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }
